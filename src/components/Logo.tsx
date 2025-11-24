@@ -6,17 +6,18 @@ export function Logo() {
   };
 
   return (
-    <button 
+    <button
       onClick={scrollToTop}
-      className="flex items-center hover:opacity-80 transition-opacity duration-300 cursor-pointer"
+      className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+      aria-label="GoScale Media - Return to top"
     >
-      <Image 
+      <Image
         src="/Screenshot_2025-11-24_at_7.15.38_PM.png"
         alt="GoScale Media Logo"
-        width={400}
-        height={133}
-        className="h-16 w-auto"
+        width={175}
+        height={44}
         priority
+        className="h-11 w-auto"
       />
     </button>
   );
