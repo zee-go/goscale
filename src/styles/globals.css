@@ -38,6 +38,7 @@
     --teal: #2DD4BF;
     --off-white: #FAFAFA;
     --coral: #FF6B6B;
+    --coral-dark: #E55252;
     --steel-blue: #6D8CA6;
   }
 
@@ -88,6 +89,21 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Satoshi', sans-serif;
     font-weight: 700;
+  }
+}
+
+@layer components {
+  .cta-button {
+    @apply px-4 py-4 bg-[--coral] text-white rounded-lg transition-all duration-300;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 700;
+    box-shadow: 0 4px 6px rgba(255, 107, 107, 0.2);
+  }
+  
+  .cta-button:hover {
+    background-color: var(--coral-dark);
+    box-shadow: 0 8px 16px rgba(255, 107, 107, 0.3);
+    transform: translateY(-2px);
   }
 }
 

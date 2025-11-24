@@ -1,5 +1,4 @@
 
-import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
@@ -94,13 +93,12 @@ export function ContactSection() {
               </SelectContent>
             </Select>
           </div>
-          <Button 
+          <button 
             type="submit"
-            size="lg"
-            className="w-full bg-[--coral] hover:bg-[--coral]/90 text-white font-bold text-lg py-6 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            className="cta-button w-full text-lg"
           >
             Book a Strategy Call
-          </Button>
+          </button>
         </form>
       </div>
     </section>

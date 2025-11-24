@@ -34,6 +34,10 @@ const services = [
 export function ServicesSection() {
   const { ref, isVisible } = useScrollAnimation();
 
+  const handleBookCall = () => {
+    document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section ref={ref} className="py-32 px-6 bg-[--off-white]">
       <div className="max-w-7xl mx-auto">
@@ -67,6 +71,16 @@ export function ServicesSection() {
               </Card>
             );
           })}
+        </div>
+        <div className={`text-center mt-16 transition-all duration-700 delay-500 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`}>
+          <button 
+            onClick={handleBookCall}
+            className="cta-button text-lg px-8"
+          >
+            Get Started Today
+          </button>
         </div>
       </div>
     </section>

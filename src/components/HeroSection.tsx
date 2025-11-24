@@ -1,7 +1,9 @@
 
-import { Button } from "./ui/button";
-
 export function HeroSection() {
+  const handleBookCall = () => {
+    document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-20 px-6">
       <div className="absolute inset-0 bg-gradient-to-br from-[--off-white] via-white to-[--teal]/5"></div>
@@ -16,21 +18,19 @@ export function HeroSection() {
           Data-driven ad performance for growing brands, startups, and busy teams
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6 animate-slide-up animate-delay-200">
-          <Button 
-            size="lg"
-            className="bg-[--coral] hover:bg-[--coral]/90 text-white font-semibold text-lg px-8 py-6 transition-all duration-300 hover:scale-105 hover:shadow-xl rounded-xl"
-            onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" })}
+          <button 
+            onClick={handleBookCall}
+            className="cta-button text-lg px-8"
           >
             Book a Strategy Call
-          </Button>
-          <Button 
-            size="lg"
-            variant="outline"
-            className="border-2 border-[--teal] text-[--teal] hover:bg-[--teal] hover:text-white font-semibold text-lg px-8 py-6 transition-all duration-300 hover:scale-105 hover:shadow-xl rounded-xl"
-            onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" })}
+          </button>
+          <button 
+            onClick={handleBookCall}
+            className="px-8 py-4 border-2 border-[--teal] text-[--teal] hover:bg-[--teal] hover:text-white font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl rounded-lg"
+            style={{ fontFamily: 'Satoshi, sans-serif' }}
           >
             Request an Audit
-          </Button>
+          </button>
         </div>
       </div>
     </section>

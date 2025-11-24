@@ -1,6 +1,5 @@
 
 import { Logo } from "./Logo";
-import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 
 export function Header() {
@@ -15,6 +14,10 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleBookCall = () => {
+    document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
@@ -23,12 +26,12 @@ export function Header() {
     }`}>
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Logo />
-        <Button 
-          className="bg-[--coral] hover:bg-[--coral]/90 text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg rounded-xl"
-          onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" })}
+        <button 
+          onClick={handleBookCall}
+          className="cta-button"
         >
           Book a Call
-        </Button>
+        </button>
       </div>
     </header>
   );
