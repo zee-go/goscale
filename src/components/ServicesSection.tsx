@@ -34,13 +34,13 @@ export function ServicesSection() {
   const { ref, isVisible } = useScrollAnimation();
 
   const handleBookCall = () => {
-    document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
       <div className="h-px bg-[--off-white] w-full"></div>
-      <section ref={ref} className="py-32 px-6 bg-[--off-white]">
+      <section id="services" ref={ref} className="py-32 px-6 bg-[--off-white]">
         <div className="max-w-7xl mx-auto">
           <h2 className={`text-4xl md:text-5xl lg:text-6xl font-black text-[--charcoal] text-center mb-20 transition-all duration-700 ease-in-out ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"

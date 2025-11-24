@@ -25,7 +25,7 @@ export function ResultsSection() {
   return (
     <>
       <div className="h-px bg-[--off-white] w-full"></div>
-      <section ref={ref} className="py-24 px-6 bg-[--charcoal]">
+      <section id="results" ref={ref} className="py-24 px-6 bg-[--charcoal]">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
             {metrics.map((metric, index) => (

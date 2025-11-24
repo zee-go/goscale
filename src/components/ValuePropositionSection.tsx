@@ -28,7 +28,7 @@ export function ValuePropositionSection() {
   return (
     <>
       <div className="h-px bg-[--off-white] w-full"></div>
-      <section ref={ref} className="py-32 px-6 bg-white">
+      <section id="about" ref={ref} className="py-32 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
             {values.map((value, index) => {
