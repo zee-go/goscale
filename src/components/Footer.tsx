@@ -1,29 +1,37 @@
-import { ArrowRight } from "lucide-react";
+
+import { Logo } from "./Logo";
 
 export function Footer() {
-  const handleBookCall = () => {
-    document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });
+  const handleEmailClick = () => {
+    window.location.href = "mailto:hello@goscale.media?subject=GoScale Media Inquiry";
   };
 
   return (
-    <>
-      <div className="h-px bg-[--off-white] w-full"></div>
-      <footer className="py-16 px-6 bg-[--charcoal]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-8">
-            <button 
-              onClick={handleBookCall}
-              className="cta-button text-lg px-8 flex items-center gap-2 mx-auto"
+    <footer className="bg-[#2E2E2E] text-white py-12 border-t border-[#3E3E3E]">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center">
+            <div className="filter brightness-0 invert">
+              <Logo />
+            </div>
+          </div>
+
+          <div className="text-center">
+            <p className="text-sm text-gray-400">
+              © 2025 GoScale Media. Unlocking Ad Potential.
+            </p>
+          </div>
+
+          <div>
+            <button
+              onClick={handleEmailClick}
+              className="text-[#2DD4BF] hover:text-[#FF6B6B] transition-colors duration-300 text-sm font-medium"
             >
-              Start Scaling Today
-              <ArrowRight size={20} />
+              hello@goscale.media
             </button>
           </div>
-          <p className="text-[--steel-blue] text-center">
-            © {new Date().getFullYear()} GoScale Media. All rights reserved.
-          </p>
         </div>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
 }
