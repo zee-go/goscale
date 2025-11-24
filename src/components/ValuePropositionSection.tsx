@@ -27,31 +27,31 @@ export function ValuePropositionSection() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-white">
+    <section ref={ref} className="py-32 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
           {values.map((value, index) => {
             const Icon = value.icon;
             return (
               <div 
                 key={index}
-                className={`text-center space-y-4 transition-all duration-700 ${
+                className={`text-center space-y-6 transition-all duration-700 ${
                   isVisible 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-8'
+                    ? "opacity-100 translate-y-0" 
+                    : "opacity-0 translate-y-8"
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
                 <div className="flex justify-center">
                   <div 
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center transition-transform duration-300 hover:scale-110 hover:rotate-3"
+                    className="w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-3 cursor-pointer shadow-sm hover:shadow-md"
                     style={{ backgroundColor: `${value.color}20` }}
                   >
-                    <Icon size={32} style={{ color: value.color }} strokeWidth={2.5} />
+                    <Icon size={36} style={{ color: value.color }} strokeWidth={2.5} />
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-[--charcoal]">{value.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                <h3 className="text-2xl md:text-3xl font-bold text-[--charcoal]">{value.title}</h3>
+                <p className="text-gray-600 leading-relaxed text-lg">{value.description}</p>
               </div>
             );
           })}

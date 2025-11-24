@@ -35,32 +35,32 @@ export function ServicesSection() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-[--off-white]">
+    <section ref={ref} className="py-32 px-6 bg-[--off-white]">
       <div className="max-w-7xl mx-auto">
-        <h2 className={`text-4xl md:text-5xl font-black text-[--charcoal] text-center mb-16 transition-all duration-700 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        <h2 className={`text-4xl md:text-5xl lg:text-6xl font-black text-[--charcoal] text-center mb-20 transition-all duration-700 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}>
           How We Help You Scale
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <Card 
                 key={index}
-                className={`border-2 border-gray-200 hover:border-[--teal] transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-white cursor-pointer group ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                className={`border-2 border-gray-200 hover:border-[--teal] transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 bg-white cursor-pointer group rounded-2xl ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-xl bg-[--teal]/10 flex items-center justify-center mb-4 group-hover:bg-[--teal]/20 transition-colors duration-300">
-                    <Icon size={24} className="text-[--teal] group-hover:scale-110 transition-transform duration-300" strokeWidth={2.5} />
+                <CardHeader className="space-y-4">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[--teal]/10 to-[--teal]/20 flex items-center justify-center group-hover:from-[--teal]/20 group-hover:to-[--teal]/30 transition-all duration-300">
+                    <Icon size={28} className="text-[--teal] group-hover:scale-110 transition-transform duration-300" strokeWidth={2.5} />
                   </div>
-                  <CardTitle className="text-xl text-[--charcoal]">{service.title}</CardTitle>
+                  <CardTitle className="text-xl font-bold text-[--charcoal]">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-gray-600 leading-relaxed">
+                  <CardDescription className="text-gray-600 leading-relaxed text-base">
                     {service.description}
                   </CardDescription>
                 </CardContent>
