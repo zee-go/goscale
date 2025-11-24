@@ -9,16 +9,16 @@ export function Logo() {
     <button
       onClick={scrollToTop}
       className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-      aria-label="GoScale Media - Return to top"
-    >
+      aria-label="GoScale Media - Return to top">
+
       <Image
         src="/Screenshot_2025-11-24_at_7.15.38_PM.png"
         alt="GoScale Media Logo"
         width={175}
         height={44}
         priority
-        className="h-11 w-auto"
-      />
-    </button>
-  );
+        className="h-11 w-auto" style={{ backgroundImage: "linear-gradient(90deg, rgba(0, 0, 0, 0), #764ba2)", backgroundColor: "transparent" }} />
+
+    </button>);
+
 }
