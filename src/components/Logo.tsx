@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 
 export function Logo() {
@@ -13,7 +12,7 @@ export function Logo() {
       aria-label="GoScale Media - Return to top"
     >
       <Image
-        src="/g (2).png"
+        src="/g%20(2).png"
         alt="GoScale Media Logo"
         width={280}
         height={70}

@@ -10,7 +10,7 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["hero", "services", "platforms", "results", "contact"];
+      const sections = ["hero", "services", "platforms", "contact"];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -54,7 +54,6 @@ export function Header() {
     { id: "hero", label: "Home" },
     { id: "services", label: "Services" },
     { id: "platforms", label: "Platforms" },
-    { id: "results", label: "Results" },
     { id: "contact", label: "Contact" }
   ];
 
