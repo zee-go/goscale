@@ -94,16 +94,23 @@
 
 @layer components {
   .cta-button {
-    @apply px-4 py-4 bg-[--coral] text-white rounded-lg transition-all duration-300;
+    @apply px-4 py-4 bg-[--coral] text-white rounded-lg;
     font-family: 'Satoshi', sans-serif;
     font-weight: 700;
     box-shadow: 0 4px 6px rgba(255, 107, 107, 0.2);
+    transition: all 0.3s ease;
   }
   
   .cta-button:hover {
     background-color: var(--coral-dark);
     box-shadow: 0 8px 16px rgba(255, 107, 107, 0.3);
     transform: translateY(-2px);
+  }
+  
+  * {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: ease;
+    transition-duration: 300ms;
   }
 }
 
