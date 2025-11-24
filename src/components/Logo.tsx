@@ -13,12 +13,12 @@ export function Logo() {
       aria-label="GoScale Media - Return to top"
     >
       <Image
-        src="/g.svg"
+        src="/g (2).png"
         alt="GoScale Media Logo"
-        width={175}
-        height={44}
+        width={280}
+        height={70}
         priority
-        className="h-11 w-auto"
+        className="h-16 w-auto md:h-20"
       />
     </button>
   );
