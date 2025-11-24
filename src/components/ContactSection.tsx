@@ -4,6 +4,7 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { useState } from "react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -13,21 +14,33 @@ export function ContactSection() {
     adSpend: ""
   });
 
+  const { ref, isVisible } = useScrollAnimation();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
+    alert("Thank you! We'll be in touch soon to schedule your strategy call.");
   };
 
   return (
-    <section id="contact-form" className="py-24 px-6 bg-gradient-to-br from-[--off-white] to-white">
+    <section id="contact-form" ref={ref} className="py-24 px-6 bg-gradient-to-br from-[--off-white] to-white">
       <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-black text-[--charcoal] mb-6 animate-fade-in">
+        <h2 className={`text-4xl md:text-5xl font-black text-[--charcoal] mb-6 transition-all duration-700 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
           Ready to Break Through Your Limits?
         </h2>
-        <p className="text-xl text-gray-600 mb-12 animate-fade-in animate-delay-100">
+        <p className={`text-xl text-gray-600 mb-12 transition-all duration-700 delay-100 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
           Let's discuss how we can accelerate your growth
         </p>
-        <form onSubmit={handleSubmit} className="space-y-6 animate-fade-in animate-delay-200">
+        <form 
+          onSubmit={handleSubmit} 
+          className={`space-y-6 transition-all duration-700 delay-200 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           <div className="grid md:grid-cols-2 gap-6">
             <div className="space-y-2 text-left">
               <Label htmlFor="name" className="text-[--charcoal] font-semibold">Name</Label>
@@ -68,7 +81,7 @@ export function ContactSection() {
           </div>
           <div className="space-y-2 text-left">
             <Label htmlFor="adSpend" className="text-[--charcoal] font-semibold">Monthly Ad Spend</Label>
-            <Select value={formData.adSpend} onValueChange={(value) => setFormData({ ...formData, adSpend: value })}>
+            <Select value={formData.adSpend} onValueChange={(value) => setFormData({ ...formData, adSpend: value })} required>
               <SelectTrigger className="border-2 border-gray-200 focus:border-[--teal] transition-colors">
                 <SelectValue placeholder="Select your monthly ad spend" />
               </SelectTrigger>

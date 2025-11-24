@@ -1,5 +1,6 @@
 
 import { Target, TrendingUp, Users } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const values = [
   {
@@ -23,8 +24,10 @@ const values = [
 ];
 
 export function ValuePropositionSection() {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section className="py-24 px-6 bg-white">
+    <section ref={ref} className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-3 gap-12">
           {values.map((value, index) => {
@@ -32,12 +35,16 @@ export function ValuePropositionSection() {
             return (
               <div 
                 key={index}
-                className="text-center space-y-4 animate-fade-in"
-                style={{ animationDelay: `${index * 0.15}s` }}
+                className={`text-center space-y-4 transition-all duration-700 ${
+                  isVisible 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-8'
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
               >
                 <div className="flex justify-center">
                   <div 
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center"
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center transition-transform duration-300 hover:scale-110 hover:rotate-3"
                     style={{ backgroundColor: `${value.color}20` }}
                   >
                     <Icon size={32} style={{ color: value.color }} strokeWidth={2.5} />
