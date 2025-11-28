@@ -13,10 +13,10 @@ export function Logo() {
       aria-label="GoScale Media - Return to top"
     >
       <Image
-        src="/g%20(3).png"
+        src="/gsm_horizontal_logo.png"
         alt="GoScale Media Logo"
-        width={280}
-        height={70}
+        width={320}
+        height={80}
         priority
         className="h-16 w-auto md:h-20"
       />
