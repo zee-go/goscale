@@ -1,17 +1,16 @@
 
+import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export function ExperienceSection() {
   const { ref, isVisible } = useScrollAnimation();
 
   const clients = [
-    { name: "Ipsy", url: "ipsy.com" },
-    { name: "Jerry", url: "jerry.ai" },
-    { name: "Coalition", url: "coalition.com" },
-    { name: "Earnin", url: "earnin.com" },
-    { name: "Ntegrity", url: "ntegrity.com.au" },
-    { name: "Exacti", url: "exacti.us" },
-    { name: "IT Genius", url: "itgenius.com" }
+    { name: "Ipsy", logo: "/ipsy.jpeg" },
+    { name: "Jerry", logo: "/jerry.png" },
+    { name: "Coalition", logo: "/coalition.jpeg" },
+    { name: "Ntegrity", logo: "/ntegrity.png" },
+    { name: "IT Genius", logo: "/itGenius-Logo-4K-White-PNG.webp" }
   ];
 
   return (
@@ -25,40 +24,34 @@ export function ExperienceSection() {
         >
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-[#2E2E2E] mb-4">
-              Trusted by Growing Brands
+              Experience Includes Work With
             </h2>
             <p className="text-lg text-[#6D8CA6] max-w-2xl mx-auto">
-              We've helped scale ad performance for companies across industries
+              Trusted partnerships with innovative brands across industries
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-center">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
             {clients.map((client, index) => (
               <div
                 key={client.name}
-                className="flex items-center justify-center p-6 bg-white rounded-lg border border-gray-200 hover:border-[#2DD4BF] transition-all duration-300 hover:shadow-lg"
+                className="flex items-center justify-center p-8 bg-white rounded-lg border border-gray-200 hover:border-[#2DD4BF] transition-all duration-300 hover:shadow-lg h-32"
                 style={{
                   animationDelay: `${index * 100}ms`,
                   animation: isVisible ? "fadeInUp 0.6s ease-out forwards" : "none"
                 }}
               >
-                <div className="text-center">
-                  <div className="w-32 h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center mb-2">
-                    <span className="text-2xl font-bold text-[#6D8CA6]">
-                      {client.name.slice(0, 2).toUpperCase()}
-                    </span>
-                  </div>
-                  <p className="text-sm font-semibold text-[#2E2E2E]">{client.name}</p>
-                  <p className="text-xs text-[#6D8CA6]">{client.url}</p>
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <Image
+                    src={client.logo}
+                    alt={`${client.name} logo`}
+                    fill
+                    className="object-contain p-2"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  />
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <p className="text-[#6D8CA6] text-sm">
-              Upload actual client logos to replace placeholders
-            </p>
           </div>
         </div>
       </div>
