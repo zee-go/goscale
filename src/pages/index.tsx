@@ -14,10 +14,10 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSection />
+        <ExperienceSection />
         <PortfolioSection />
         <ValuePropositionSection />
         <ServicesSection />
-        <ExperienceSection />
         <PlatformsSection />
         <ContactSection />
       </main>

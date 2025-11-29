@@ -10,7 +10,9 @@ export function ExperienceSection() {
     { name: "Jerry", logo: "/jerry.png" },
     { name: "Coalition", logo: "/coalition.jpeg" },
     { name: "Ntegrity", logo: "/ntegrity.png" },
-    { name: "IT Genius", logo: "/itGenius-Logo-4K-White-PNG.webp" }
+    { name: "IT Genius", logo: "/itGenius-Logo-4K-White-PNG.webp" },
+    { name: "Exactius", logo: "/exactius.png" },
+    { name: "EarnIn", logo: "/earnin.png" }
   ];
 
   return (
@@ -31,7 +33,7 @@ export function ExperienceSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-center mb-12">
             {clients.map((client, index) => (
               <div
                 key={client.name}
@@ -47,11 +49,17 @@ export function ExperienceSection() {
                     alt={`${client.name} logo`}
                     fill
                     className="object-contain p-2"
-                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   />
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="text-center">
+            <p className="text-sm text-[#6D8CA6] italic">
+              Portfolio includes client work from direct partnerships and contractor engagements
+            </p>
           </div>
         </div>
       </div>
