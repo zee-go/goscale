@@ -2,25 +2,25 @@ import { Target, TrendingUp, Users } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const values = [
-  {
-    icon: Target,
-    color: "#2DD4BF",
-    title: "Strategic Excellence",
-    description: "We don't just run ads—we build comprehensive growth strategies. Every campaign is backed by deep market research and competitive analysis."
-  },
-  {
-    icon: TrendingUp,
-    color: "#FF6B6B",
-    title: "Performance Obsession",
-    description: "Results matter. We're laser-focused on ROI, continuously optimizing every dollar spent to maximize your returns and accelerate growth."
-  },
-  {
-    icon: Users,
-    color: "#6D8CA6",
-    title: "Partnership First",
-    description: "You're not just a client—you're a partner. We embed ourselves in your business, understanding your goals and challenges as our own."
-  }
-];
+{
+  icon: Target,
+  color: "#2DD4BF",
+  title: "Strategic Excellence",
+  description: "We don't just run ads—we build comprehensive growth strategies. Every campaign is backed by deep market research and competitive analysis."
+},
+{
+  icon: TrendingUp,
+  color: "#FF6B6B",
+  title: "Performance Obsession",
+  description: "Results matter. We're laser-focused on ROI, continuously optimizing every dollar spent to maximize your returns and accelerate growth."
+},
+{
+  icon: Users,
+  color: "#6D8CA6",
+  title: "Partnership First",
+  description: "You're not just a client—you're a partner. We embed ourselves in your business, understanding your goals and challenges as our own."
+}];
+
 
 export function ValuePropositionSection() {
   const { ref, isVisible } = useScrollAnimation();
@@ -34,31 +34,31 @@ export function ValuePropositionSection() {
             {values.map((value, index) => {
               const Icon = value.icon;
               return (
-                <div 
+                <div
                   key={index}
                   className={`text-center space-y-6 transition-all duration-700 ease-in-out ${
-                    isVisible 
-                      ? "opacity-100 translate-y-0" 
-                      : "opacity-0 translate-y-8"
-                  }`}
-                  style={{ transitionDelay: `${index * 150}ms` }}
-                >
+                  isVisible ?
+                  "opacity-100 translate-y-0" :
+                  "opacity-0 translate-y-8"}`
+                  }
+                  style={{ transitionDelay: `${index * 150}ms` }}>
+
                   <div className="flex justify-center">
-                    <div 
+                    <div
                       className="w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-300 ease-in-out hover:scale-110 hover:rotate-3 cursor-pointer shadow-sm hover:shadow-md"
-                      style={{ backgroundColor: `${value.color}20` }}
-                    >
+                      style={{ backgroundColor: `${value.color}20` }}>
+
                       <Icon size={36} style={{ color: value.color }} strokeWidth={2.5} />
                     </div>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-[--charcoal]">{value.title}</h3>
-                  <p className="text-[--steel-blue] leading-relaxed text-lg">{value.description}</p>
-                </div>
-              );
+                  <p className="text-[--steel-blue] leading-relaxed text-lg">We don't just run ads—we build comprehensive growth strategies. Every campaign is backed by data, deep market research, and competitive analysis.</p>
+                </div>);
+
             })}
           </div>
         </div>
       </section>
-    </>
-  );
+    </>);
+
 }
