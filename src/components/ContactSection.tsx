@@ -4,7 +4,7 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { Textarea } from "./ui/textarea";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Mail, CheckCircle2, AlertCircle } from "lucide-react";
 import { useState } from "react";
 
 export function ContactSection() {
@@ -15,23 +15,57 @@ export function ContactSection() {
     adSpend: "",
     message: ""
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!formData.name || !formData.email || !formData.company || !formData.adSpend || !formData.message) {
-      alert("Please fill in all fields");
+      setStatus("error");
+      setErrorMessage("Please fill in all fields");
       return;
     }
 
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
-    
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", email: "", company: "", adSpend: "", message: "" });
-    }, 5000);
+    setStatus("loading");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          adSpend: formData.adSpend,
+          message: formData.message,
+          subject: "New GoScale Media Strategy Call Request",
+          from_name: "GoScale Media Website",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus("success");
+        setFormData({ name: "", email: "", company: "", adSpend: "", message: "" });
+        
+        setTimeout(() => {
+          setStatus("idle");
+        }, 8000);
+      } else {
+        setStatus("error");
+        setErrorMessage("Something went wrong. Please try again or email us directly.");
+      }
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage("Network error. Please check your connection and try again.");
+      console.error("Form submission error:", error);
+    }
   };
 
   const handleEmailClick = () => {
@@ -42,7 +76,7 @@ export function ContactSection() {
     <section id="contact" className="py-20 bg-white border-t border-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#2E2E2E] mb-4" style={{ fontFamily: 'Satoshi, sans-serif' }}>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#2E2E2E] mb-4" style={{ fontFamily: "Satoshi, sans-serif" }}>
             Ready to Break Through Your Limits?
           </h2>
           <p className="text-lg text-[#6D8CA6] max-w-2xl mx-auto">
@@ -50,17 +84,37 @@ export function ContactSection() {
           </p>
         </div>
 
-        {submitted && (
-          <div className="mb-8 p-4 bg-[#2DD4BF] bg-opacity-10 border border-[#2DD4BF] rounded-lg text-center">
-            <p className="text-[#2E2E2E] font-medium">
-              Thanks! We&apos;ll be in touch within 24 hours.
-            </p>
+        {status === "success" && (
+          <div className="mb-8 p-6 bg-[#2DD4BF] bg-opacity-10 border border-[#2DD4BF] rounded-lg flex items-center gap-3 max-w-6xl mx-auto">
+            <CheckCircle2 className="text-[#2DD4BF] flex-shrink-0" size={24} />
+            <div>
+              <p className="text-[#2E2E2E] font-semibold">
+                Thanks for reaching out!
+              </p>
+              <p className="text-[#6D8CA6] text-sm">
+                We&apos;ll be in touch within 24 hours to schedule your strategy call.
+              </p>
+            </div>
+          </div>
+        )}
+
+        {status === "error" && (
+          <div className="mb-8 p-6 bg-[#FF6B6B] bg-opacity-10 border border-[#FF6B6B] rounded-lg flex items-center gap-3 max-w-6xl mx-auto">
+            <AlertCircle className="text-[#FF6B6B] flex-shrink-0" size={24} />
+            <div>
+              <p className="text-[#2E2E2E] font-semibold">
+                {errorMessage}
+              </p>
+              <p className="text-[#6D8CA6] text-sm">
+                You can also reach us directly at hello@goscale.media
+              </p>
+            </div>
           </div>
         )}
 
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <div>
-            <h3 className="text-2xl font-bold text-[#2E2E2E] mb-6" style={{ fontFamily: 'Satoshi, sans-serif' }}>
+            <h3 className="text-2xl font-bold text-[#2E2E2E] mb-6" style={{ fontFamily: "Satoshi, sans-serif" }}>
               Get Started
             </h3>
             
@@ -73,7 +127,8 @@ export function ContactSection() {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
-                  className="border-[#6D8CA6]"
+                  disabled={status === "loading"}
+                  className="border-[#6D8CA6] disabled:opacity-50"
                 />
               </div>
 
@@ -85,7 +140,8 @@ export function ContactSection() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  className="border-[#6D8CA6]"
+                  disabled={status === "loading"}
+                  className="border-[#6D8CA6] disabled:opacity-50"
                 />
               </div>
 
@@ -97,7 +153,8 @@ export function ContactSection() {
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                   required
-                  className="border-[#6D8CA6]"
+                  disabled={status === "loading"}
+                  className="border-[#6D8CA6] disabled:opacity-50"
                 />
               </div>
 
@@ -107,8 +164,9 @@ export function ContactSection() {
                   value={formData.adSpend}
                   onValueChange={(value) => setFormData({ ...formData, adSpend: value })}
                   required
+                  disabled={status === "loading"}
                 >
-                  <SelectTrigger className="border-[#6D8CA6]">
+                  <SelectTrigger className="border-[#6D8CA6] disabled:opacity-50">
                     <SelectValue placeholder="Select range" />
                   </SelectTrigger>
                   <SelectContent>
@@ -127,25 +185,33 @@ export function ContactSection() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
+                  disabled={status === "loading"}
                   rows={4}
-                  className="border-[#6D8CA6]"
+                  className="border-[#6D8CA6] disabled:opacity-50"
                   placeholder="Tell us about your goals and challenges..."
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-[#FF6B6B] hover:bg-[#FF5252] text-white font-semibold py-6 text-lg group"
+                disabled={status === "loading"}
+                className="w-full bg-[#FF6B6B] hover:bg-[#FF5252] text-white font-semibold py-6 text-lg group disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Book a Strategy Call
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+                {status === "loading" ? (
+                  "Sending..."
+                ) : (
+                  <>
+                    Book a Strategy Call
+                    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+                  </>
+                )}
               </Button>
             </form>
           </div>
 
           <div className="flex flex-col justify-center">
             <div className="bg-[#FAFAFA] rounded-lg p-8 border border-[#E5E5E5]">
-              <h3 className="text-2xl font-bold text-[#2E2E2E] mb-6" style={{ fontFamily: 'Satoshi, sans-serif' }}>
+              <h3 className="text-2xl font-bold text-[#2E2E2E] mb-6" style={{ fontFamily: "Satoshi, sans-serif" }}>
                 Prefer to reach out directly?
               </h3>
               
