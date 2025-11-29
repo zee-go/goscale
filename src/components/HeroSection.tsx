@@ -46,7 +46,7 @@ export function HeroSection() {
       <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
         <h1
           className="text-5xl md:text-7xl font-bold text-[#2E2E2E] mb-6 leading-tight"
-          style={{ fontFamily: "Satoshi, sans-serif", fontSize: "56px", lineHeight: "1", fontStyle: "normal", textDecoration: "none", backgroundColor: "#00000000", fontWeight: "800", margin: "0px", padding: "12px 0px" }}>
+          style={{ fontFamily: "Satoshi, sans-serif", fontSize: "80px", lineHeight: "1", fontStyle: "normal", textDecoration: "none", backgroundColor: "#00000000", fontWeight: "800", margin: "0px", padding: "12px 0px" }}>
 
           Unlocking Ad Potential for Brands and Teams Ready to Scale
         </h1>
