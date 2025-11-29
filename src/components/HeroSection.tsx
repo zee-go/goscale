@@ -46,19 +46,19 @@ export function HeroSection() {
       <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
         <h1
           className="text-5xl md:text-7xl font-bold text-[#2E2E2E] mb-6 leading-tight"
-          style={{ fontFamily: "Satoshi, sans-serif", fontSize: "32px", lineHeight: "", fontStyle: "normal", textDecoration: "none", backgroundColor: "#00000000", fontWeight: "800" }}>
+          style={{ fontFamily: "Satoshi, sans-serif", fontSize: "56px", lineHeight: "1", fontStyle: "normal", textDecoration: "none", backgroundColor: "#00000000", fontWeight: "800", margin: "0px", padding: "12px 0px" }}>
 
           Unlocking Ad Potential for Brands and Teams Ready to Scale
         </h1>
         
-        <p className="text-xl md:text-2xl text-[#6D8CA6] mb-12 max-w-3xl mx-auto" style={{ fontFamily: "Outfit, sans-serif", fontSize: "18px", lineHeight: "1" }}>
+        <p className="text-xl md:text-2xl text-[#6D8CA6] mb-12 max-w-3xl mx-auto" style={{ fontFamily: "Outfit, sans-serif", fontSize: "40px", lineHeight: "1" }}>
           Data-driven ad performance for growing brands, startups, and busy teams
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <button
             onClick={handleBookCall}
-            className="bg-[#FF6B6B] hover:bg-[#FF5252] text-white font-semibold px-8 py-4 rounded-lg flex items-center gap-2 transform hover:scale-105 hover:shadow-xl transition-all duration-300 group" style={{ fontSize: "14px" }}>
+            className="bg-[#FF6B6B] hover:bg-[#FF5252] text-white font-semibold px-8 py-4 rounded-lg flex items-center gap-2 transform hover:scale-105 hover:shadow-xl transition-all duration-300 group" style={{ fontSize: "18px" }}>
 
             Book a Strategy Call
             <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
@@ -66,7 +66,7 @@ export function HeroSection() {
           
           <button
             onClick={handleRequestAudit}
-            className="border-2 border-[#2DD4BF] text-[#2DD4BF] hover:bg-[#2DD4BF] hover:text-white font-semibold px-8 py-4 rounded-lg flex items-center gap-2 transform hover:scale-105 transition-all duration-300 group" style={{ fontSize: "14px" }}>
+            className="border-2 border-[#2DD4BF] text-[#2DD4BF] hover:bg-[#2DD4BF] hover:text-white font-semibold px-8 py-4 rounded-lg flex items-center gap-2 transform hover:scale-105 transition-all duration-300 group" style={{ fontSize: "18px" }}>
 
             Request an Audit
             <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
