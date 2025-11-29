@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
@@ -11,7 +10,7 @@ export function ExperienceSection() {
     { name: "Coalition", logo: "/coalition.jpeg" },
     { name: "Ntegrity", logo: "/ntegrity.png" },
     { name: "IT Genius", logo: "/itGenius-Logo-4K-White-PNG.webp" },
-    { name: "Exactius", logo: "/exactius.png" },
+    { name: "Exactius", logo: "/exactius.jpeg" },
     { name: "EarnIn", logo: "/earnin.png" }
   ];
 
