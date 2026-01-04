@@ -72,7 +72,7 @@ export function Header() {
               activeSection === link.id ?
               "text-[#2DD4BF]" :
               "text-[#2E2E2E] hover:text-[#2DD4BF]"}`
-              } style={{ fontSize: "16px" }}>
+              } style={{ fontSize: "16px", lineHeight: "1" }}>
 
                 {link.label}
                 {activeSection === link.id &&
