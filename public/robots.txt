@@ -1,0 +1,6 @@
+# robots.txt for GoScale Media
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://goscalemedia.com/sitemap.xml
