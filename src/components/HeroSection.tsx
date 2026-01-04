@@ -46,13 +46,13 @@ export function HeroSection() {
       <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
         <h1
           className="text-5xl md:text-7xl font-bold text-[#2E2E2E] mb-6 leading-tight"
-          style={{ fontFamily: "Satoshi, sans-serif", fontSize: "80px", lineHeight: "1", fontStyle: "normal", textDecoration: "none", backgroundColor: "#00000000", fontWeight: "800", margin: "0px", padding: "12px 0px" }}>
+          style={{ fontFamily: "Satoshi, sans-serif", fontSize: "56px", lineHeight: "1", fontStyle: "normal", textDecoration: "none", backgroundColor: "#00000000", fontWeight: "800", margin: "0px", padding: "12px 0px" }}>Your on-demand growth partner for brands ready to scale
 
-          Unlocking Ad Potential for Brands and Teams Ready to Scale
+
         </h1>
         
-        <p className="text-xl md:text-2xl text-[#6D8CA6] mb-12 max-w-3xl mx-auto" style={{ fontFamily: "Outfit, sans-serif", fontSize: "40px", lineHeight: "1" }}>
-          Data-driven ad performance for growing brands, startups, and busy teams
+        <p className="text-xl md:text-2xl text-[#6D8CA6] mb-12 max-w-3xl mx-auto" style={{ fontFamily: "Outfit, sans-serif", fontSize: "32px", lineHeight: "1" }}>Paid media strategy, audits, and hands-on execution—without the cost of a full-time hire.
+
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
