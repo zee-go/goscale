@@ -17,12 +17,11 @@ export function Footer() {
         <div className="flex flex-col items-center gap-8">
           <Link href="/">
             <Image
-              src="/gsm_horizontal_logo.png"
+              src="/gsm_footer_logo.png"
               alt="GoScale Media"
               width={400}
               height={100}
-              className="h-20 w-auto rounded-xl"
-              style={{ filter: "brightness(0) invert(1) brightness(0.98)", backgroundColor: "#2E2E2E" }}
+              className="h-20 w-auto"
             />
           </Link>
 
