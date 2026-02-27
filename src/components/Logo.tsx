@@ -18,7 +18,7 @@ export function Logo() {
         width={320}
         height={80}
         priority
-        className="h-16 w-auto md:h-20"
+        className="h-16 w-auto md:h-20 rounded-xl"
       />
     </button>
   );
