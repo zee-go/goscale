@@ -21,8 +21,8 @@ export function Footer() {
               alt="GoScale Media"
               width={400}
               height={100}
-              className="h-20 w-auto"
-              style={{ filter: "brightness(0) invert(1) brightness(0.98)" }}
+              className="h-20 w-auto rounded-xl"
+              style={{ filter: "brightness(0) invert(1) brightness(0.98)", backgroundColor: "#2E2E2E" }}
             />
           </Link>
 
