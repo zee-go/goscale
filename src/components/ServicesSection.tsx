@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Search, Lightbulb, Network, Zap, Palette, ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -76,13 +77,13 @@ export function ServicesSection() {
           <div className={`text-center mt-16 transition-all duration-700 ease-in-out delay-500 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}>
-            <button 
-              onClick={handleBookCall}
-              className="cta-button text-lg px-8 flex items-center gap-2 mx-auto"
+            <Link
+              href="/services"
+              className="cta-button text-lg px-8 inline-flex items-center gap-2 mx-auto"
             >
-              Get Started Today
+              Learn More
               <ArrowRight size={20} />
-            </button>
+            </Link>
           </div>
         </div>
       </section>

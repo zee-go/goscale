@@ -1,5 +1,6 @@
 
-import { Facebook, Search, Infinity, Music, Linkedin, Apple, Network, Smartphone } from "lucide-react";
+import Link from "next/link";
+import { Facebook, Search, Infinity, Music, Linkedin, Apple, Network, Smartphone, ArrowRight } from "lucide-react";
 
 export function PlatformsSection() {
   const platforms = [
@@ -50,6 +51,17 @@ export function PlatformsSection() {
               </div>
             );
           })}
+        </div>
+
+        <div className="text-center mt-12">
+          <Link
+            href="/platforms"
+            className="inline-flex items-center gap-2 text-[#2DD4BF] hover:text-[#FF6B6B] font-semibold transition-colors"
+            style={{ fontFamily: 'Outfit, sans-serif' }}
+          >
+            See all platforms
+            <ArrowRight size={18} />
+          </Link>
         </div>
       </div>
     </section>
