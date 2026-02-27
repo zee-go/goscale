@@ -17,11 +17,11 @@ export function Footer() {
         <div className="flex flex-col items-center gap-8">
           <Link href="/">
             <Image
-              src="/gsm_horizontal_logo.png"
+              src="/gsm_horizontal_logo_inverted_transparent.png"
               alt="GoScale Media"
               width={200}
               height={50}
-              className="h-12 w-auto brightness-0 invert"
+              className="h-12 w-auto"
             />
           </Link>
 
