@@ -51,7 +51,7 @@ export function HeroSection() {
 
         </h1>
         
-        <p className="text-xl md:text-2xl text-[#6D8CA6] mb-12 max-w-3xl mx-auto" style={{ fontFamily: "Outfit, sans-serif", fontSize: "32px", lineHeight: "1" }}>Paid media strategy, audits, and hands-on execution—without the cost of a full-time hire.
+        <p className="text-xl md:text-2xl text-[#6D8CA6] mb-12 max-w-3xl mx-auto" style={{ fontFamily: "Outfit, sans-serif", fontSize: "32px", lineHeight: "1" }}>Paid media strategy, audits, and hands-on execution without the full-time hire.
 
         </p>
 

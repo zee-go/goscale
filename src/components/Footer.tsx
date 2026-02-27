@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { Logo } from "./Logo";
+import Image from "next/image";
 
 const footerLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Platforms", href: "/platforms" },
   { label: "Blog", href: "/blog" },
+  { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/#contact" },
 ];
 
@@ -14,9 +15,15 @@ export function Footer() {
     <footer className="bg-[#2E2E2E] text-white py-12 border-t border-[#3E3E3E]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col items-center gap-8">
-          <div className="filter brightness-0 invert">
-            <Logo />
-          </div>
+          <Link href="/">
+            <Image
+              src="/gsm_horizontal_logo.png"
+              alt="GoScale Media"
+              width={200}
+              height={50}
+              className="h-12 w-auto"
+            />
+          </Link>
 
           <nav className="flex flex-wrap justify-center gap-6">
             {footerLinks.map((link) => (
@@ -31,7 +38,7 @@ export function Footer() {
           </nav>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 text-sm text-gray-400">
-            <p>&copy; 2025 GoScale Media. Unlocking Ad Potential.</p>
+            <p>&copy; 2026 GoScale Media. Unlocking Ad Potential.</p>
             <span className="hidden sm:inline">&middot;</span>
             <a
               href="mailto:hello@goscale.media?subject=GoScale Media Inquiry"

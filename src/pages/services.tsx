@@ -9,9 +9,9 @@ const services = [
     icon: Search,
     title: "Ads Audit & Optimization",
     description:
-      "We tear apart your current campaigns and rebuild them for performance. Our audits cover account structure, bidding strategy, audience targeting, creative quality, and attribution gaps — then deliver a prioritized action plan ranked by revenue impact.",
+      "We tear apart your current campaigns and rebuild them for performance. Our audits cover account structure, bidding strategy, audience targeting, creative quality, and attribution gaps, then deliver a prioritized action plan ranked by revenue impact.",
     details:
-      "Most brands waste 20–40% of their ad spend on poor structure alone. We identify those leaks and plug them. Every audit includes a competitor benchmarking analysis so you know exactly where you stand in your market.",
+      "Most brands waste 20-40% of their ad spend on poor structure alone. We identify those leaks and plug them. Every audit includes a competitor benchmarking analysis so you know exactly where you stand in your market.",
     deliverables: [
       "Full-funnel campaign audit across all active platforms",
       "Wasted spend analysis with specific savings projections",
@@ -26,7 +26,7 @@ const services = [
     description:
       "Before you spend another euro on ads, we build the strategic foundation. We map your customer journey, define your channel mix, set realistic ROAS targets by stage, and create the measurement framework to prove what's working.",
     details:
-      "This isn't a deck that sits in a drawer. We deliver a living playbook your team can execute on — complete with budget allocation models, testing calendars, and scaling triggers so you know exactly when to pour fuel on what's working.",
+      "This isn't a deck that sits in a drawer. We deliver a living playbook your team can execute on, complete with budget allocation models, testing calendars, and scaling triggers so you know exactly when to pour fuel on what's working.",
     deliverables: [
       "Channel-mix strategy with budget allocation model",
       "Customer journey mapping with touchpoint analysis",
@@ -39,7 +39,7 @@ const services = [
     icon: Network,
     title: "Cross-Channel Campaign Management",
     description:
-      "We run your paid media across Meta, Google, LinkedIn, TikTok, and more — as a unified system, not isolated channels. Campaigns are orchestrated to move prospects through your funnel, with budget shifting dynamically to what converts.",
+      "We run your paid media across Meta, Google, LinkedIn, TikTok, and more as a unified system, not isolated channels. Campaigns are orchestrated to move prospects through your funnel, with budget shifting dynamically to what converts.",
     details:
       "Our approach treats your ad spend as a single investment portfolio. We allocate across channels based on real-time performance data, not gut feelings. Weekly reporting shows exactly how each channel contributes to pipeline and revenue.",
     deliverables: [
@@ -54,14 +54,14 @@ const services = [
     icon: Zap,
     title: "Agency Overflow Support",
     description:
-      "For agencies that need expert execution without hiring. We white-label campaign management, audits, and strategy work so you can take on more clients and deliver better results — without expanding your team or overhead.",
+      "For agencies that need expert execution without hiring. We white-label campaign management, audits, and strategy work so you can take on more clients and deliver better results without expanding your team or overhead.",
     details:
       "We integrate seamlessly into your workflow and client communication style. Your clients never know we exist. You get enterprise-grade paid media execution at a fraction of the cost of a senior hire.",
     deliverables: [
       "White-label campaign management under your brand",
       "Dedicated account manager for agency coordination",
       "Custom reporting in your agency's templates",
-      "Scalable capacity — ramp up or down as needed",
+      "Scalable capacity that ramps up or down as needed",
       "Knowledge transfer and team training sessions",
     ],
   },
@@ -69,7 +69,7 @@ const services = [
     icon: Palette,
     title: "Creative Testing Frameworks",
     description:
-      "Ad creative is the biggest lever in paid media. We build systematic testing frameworks that take the guesswork out of what works — isolating variables, measuring lift, and scaling winners across your campaigns.",
+      "Ad creative is the biggest lever in paid media. We build systematic testing frameworks that take the guesswork out of what works by isolating variables, measuring lift, and scaling winners across your campaigns.",
     details:
       "We test hooks, formats, messaging angles, and visual styles in structured experiments. Each test has a clear hypothesis, control, and success metric. You get a creative playbook that compounds performance over time.",
     deliverables: [
@@ -86,7 +86,7 @@ export default function ServicesPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "GoScale Media — Paid Media Services",
+    name: "GoScale Media: Paid Media Services",
     description:
       "On-demand paid media strategy, audits, and campaign management for brands ready to scale across Europe.",
     provider: {
@@ -103,7 +103,7 @@ export default function ServicesPage() {
         <title>Services | GoScale Media</title>
         <meta
           name="description"
-          content="Paid media audits, growth strategy, cross-channel campaign management, agency overflow support, and creative testing — tailored for brands scaling in Europe."
+          content="Paid media audits, growth strategy, cross-channel campaign management, agency overflow support, and creative testing tailored for brands scaling in Europe."
         />
         <link rel="canonical" href="https://goscale.media/services" />
         <meta property="og:title" content="Services | GoScale Media" />
@@ -134,7 +134,7 @@ export default function ServicesPage() {
                 className="text-lg md:text-xl text-[#6D8CA6] max-w-2xl mx-auto"
                 style={{ fontFamily: "Outfit, sans-serif" }}
               >
-                Paid media strategy, audits, and hands-on execution — without
+                Paid media strategy, audits, and hands-on execution without
                 the cost of a full-time hire.
               </p>
             </div>

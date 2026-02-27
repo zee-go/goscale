@@ -21,7 +21,7 @@ const platforms = [
     color: "text-[#2DD4BF]",
     bgColor: "from-[#2DD4BF]/5 to-[#2DD4BF]/10",
     description:
-      "Full-funnel campaigns on Facebook and Instagram — from awareness to conversion. We navigate GDPR-compliant audience building, Conversions API setup, and Advantage+ automation to drive scalable results across European markets.",
+      "Full-funnel campaigns on Facebook and Instagram, from awareness to conversion. We navigate GDPR-compliant audience building, Conversions API setup, and Advantage+ automation to drive scalable results across European markets.",
     capabilities: [
       "Advantage+ Shopping & App campaigns",
       "CAPI and server-side tracking setup",
@@ -51,7 +51,7 @@ const platforms = [
     color: "text-[#6D8CA6]",
     bgColor: "from-[#6D8CA6]/5 to-[#6D8CA6]/10",
     description:
-      "Leverage Google's AI-powered campaigns across Search, Display, YouTube, Gmail, and Maps from a single campaign. We structure asset groups, audience signals, and feed optimization to keep the algorithm working for you — not against you.",
+      "Leverage Google's AI-powered campaigns across Search, Display, YouTube, Gmail, and Maps from a single campaign. We structure asset groups, audience signals, and feed optimization to keep the algorithm working for you, not against you.",
     capabilities: [
       "Asset group strategy and creative optimization",
       "Audience signal configuration",
@@ -66,7 +66,7 @@ const platforms = [
     color: "text-[#2DD4BF]",
     bgColor: "from-[#2DD4BF]/5 to-[#2DD4BF]/10",
     description:
-      "Reach younger, engaged audiences with native-feeling ad creative. We build TikTok-first campaigns that blend into the feed — using Spark Ads, creator partnerships, and trend-driven creative to drive awareness and conversions.",
+      "Reach younger, engaged audiences with native-feeling ad creative. We build TikTok-first campaigns that blend into the feed using Spark Ads, creator partnerships, and trend-driven creative to drive awareness and conversions.",
     capabilities: [
       "Spark Ads and whitelisted creator content",
       "TikTok-native creative development",
@@ -81,7 +81,7 @@ const platforms = [
     color: "text-[#FF6B6B]",
     bgColor: "from-[#FF6B6B]/5 to-[#FF6B6B]/10",
     description:
-      "B2B demand generation with precision targeting. LinkedIn's professional data makes it the most powerful platform for reaching decision-makers by title, company size, industry, and seniority — we turn that data into pipeline.",
+      "B2B demand generation with precision targeting. LinkedIn's professional data makes it the most powerful platform for reaching decision-makers by title, company size, industry, and seniority. We turn that data into pipeline.",
     capabilities: [
       "ABM and company-list targeting campaigns",
       "Lead Gen Forms with CRM integration",
@@ -111,7 +111,7 @@ const platforms = [
     color: "text-[#2DD4BF]",
     bgColor: "from-[#2DD4BF]/5 to-[#2DD4BF]/10",
     description:
-      "Tap into community-driven conversations where purchase decisions happen. Reddit's interest-based subreddit targeting reaches niche audiences at CPMs significantly lower than Meta or LinkedIn — ideal for startups testing new markets.",
+      "Tap into community-driven conversations where purchase decisions happen. Reddit's interest-based subreddit targeting reaches niche audiences at CPMs significantly lower than Meta or LinkedIn, making it ideal for startups testing new markets.",
     capabilities: [
       "Subreddit and interest-based targeting",
       "Conversation Ads that blend with organic content",
@@ -126,7 +126,7 @@ const platforms = [
     color: "text-[#FF6B6B]",
     bgColor: "from-[#FF6B6B]/5 to-[#FF6B6B]/10",
     description:
-      "Automated media buying across premium display, video, and native inventory. We set up DSP campaigns with precise audience segments, contextual targeting, and brand safety controls — reaching users across thousands of sites and apps.",
+      "Automated media buying across premium display, video, and native inventory. We set up DSP campaigns with precise audience segments, contextual targeting, and brand safety controls to reach users across thousands of sites and apps.",
     capabilities: [
       "DSP setup and management (DV360, The Trade Desk)",
       "First-party data activation and audience building",
@@ -141,7 +141,7 @@ const platforms = [
     color: "text-[#6D8CA6]",
     bgColor: "from-[#6D8CA6]/5 to-[#6D8CA6]/10",
     description:
-      "User acquisition and retargeting across in-app ad networks like Unity Ads, ironSource, AppLovin, and Liftoff. We optimize for post-install events and LTV to ensure you're acquiring users who stick — not just install.",
+      "User acquisition and retargeting across in-app ad networks like Unity Ads, ironSource, AppLovin, and Liftoff. We optimize for post-install events and LTV to ensure you're acquiring users who stick, not just install.",
     capabilities: [
       "MMP integration (Adjust, AppsFlyer, Branch)",
       "Post-install event and LTV optimization",
@@ -156,7 +156,7 @@ export default function PlatformsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "GoScale Media — Platform Expertise",
+    name: "GoScale Media: Platform Expertise",
     description:
       "Specialized paid media management across Meta, Google, TikTok, LinkedIn, Apple Search Ads, Reddit, Programmatic, and Mobile Ad Networks.",
     provider: {
@@ -205,7 +205,7 @@ export default function PlatformsPage() {
                 style={{ fontFamily: "Outfit, sans-serif" }}
               >
                 Deep, hands-on experience across every paid channel that matters
-                — so your budget goes further on every platform.
+                so your budget goes further on every platform.
               </p>
             </div>
           </section>
@@ -272,7 +272,7 @@ export default function PlatformsPage() {
                 style={{ fontFamily: "Outfit, sans-serif" }}
               >
                 We&apos;ll build a channel strategy based on your goals, budget,
-                and audience — no guesswork.
+                and audience. No guesswork.
               </p>
               <Link
                 href="/#contact"

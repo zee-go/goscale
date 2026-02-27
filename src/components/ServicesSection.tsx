@@ -17,7 +17,7 @@ const services = [
   {
     icon: Network,
     title: "Cross-Channel Campaign Management",
-    description: "Integrated campaigns across Google, Meta, LinkedIn, and more—orchestrated for maximum impact and efficiency."
+    description: "Integrated campaigns across Google, Meta, LinkedIn, and more, orchestrated for maximum impact and efficiency."
   },
   {
     icon: Zap,

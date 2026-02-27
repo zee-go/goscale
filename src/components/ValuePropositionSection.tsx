@@ -6,19 +6,19 @@ const values = [
   icon: Target,
   color: "#2DD4BF",
   title: "Strategic Excellence",
-  description: "We don't just run ads—we build comprehensive growth strategies. Every campaign is backed by deep market research and competitive analysis."
+  description: "We build comprehensive growth strategies, not just campaigns. Every dollar is backed by deep market research and competitive analysis."
 },
 {
   icon: TrendingUp,
   color: "#FF6B6B",
   title: "Performance Obsession",
-  description: "Results matter. We're laser-focused on ROI, continuously optimizing every dollar spent to maximize your returns and accelerate growth."
+  description: "Results matter. We continuously optimize every dollar spent to maximize your returns and accelerate growth."
 },
 {
   icon: Users,
   color: "#6D8CA6",
   title: "Partnership First",
-  description: "You're not just a client—you're a partner. We embed ourselves in your business, understanding your goals and challenges as our own."
+  description: "You're not just a client, you're a partner. We embed ourselves in your business, understanding your goals and challenges as our own."
 }];
 
 
@@ -52,7 +52,7 @@ export function ValuePropositionSection() {
                     </div>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-[--charcoal]">{value.title}</h3>
-                  <p className="text-[--steel-blue] leading-relaxed text-lg">We don't just run ads—we build comprehensive growth strategies. Every campaign is backed by data, deep market research, and competitive analysis.</p>
+                  <p className="text-[--steel-blue] leading-relaxed text-lg">{value.description}</p>
                 </div>);
 
             })}
