@@ -1,4 +1,5 @@
 
+import Link from "next/link";
 import { Logo } from "./Logo";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
@@ -54,6 +55,7 @@ export function Header() {
   { id: "hero", label: "Home" },
   { id: "services", label: "Services" },
   { id: "platforms", label: "Platforms" },
+  { id: "blog", label: "Blog", href: "/blog" },
   { id: "contact", label: "Contact" }];
 
 
@@ -65,6 +67,15 @@ export function Header() {
 
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) =>
+            link.href ? (
+            <Link
+              key={link.id}
+              href={link.href}
+              className="text-sm font-medium transition-all duration-300 relative pb-1 text-[#2E2E2E] hover:text-[#2DD4BF]"
+              style={{ fontSize: "16px", lineHeight: "1" }}>
+                {link.label}
+              </Link>
+            ) : (
             <button
               key={link.id}
               onClick={() => scrollToSection(link.id)}
@@ -79,6 +90,7 @@ export function Header() {
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#2DD4BF]" />
               }
               </button>
+            )
             )}
           </nav>
 
@@ -104,6 +116,15 @@ export function Header() {
         <nav className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) =>
+            link.href ? (
+            <Link
+              key={link.id}
+              href={link.href}
+              className="text-left text-sm font-medium transition-colors text-[#2E2E2E] hover:text-[#2DD4BF]"
+              onClick={() => setIsMenuOpen(false)}>
+                  {link.label}
+                </Link>
+            ) : (
             <button
               key={link.id}
               onClick={() => scrollToSection(link.id)}
@@ -115,6 +136,7 @@ export function Header() {
 
                   {link.label}
                 </button>
+            )
             )}
               <Button
               onClick={handleBookCall}

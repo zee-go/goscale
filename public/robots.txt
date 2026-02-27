@@ -1,6 +1,9 @@
-# robots.txt for GoScale Media
+# *
 User-agent: *
 Allow: /
 
-# Sitemap
+# Host
+Host: https://goscale.media
+
+# Sitemaps
 Sitemap: https://goscale.media/sitemap.xml

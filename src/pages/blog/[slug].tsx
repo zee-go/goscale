@@ -97,18 +97,18 @@ export default function BlogPostPage({ post, mdxSource }: BlogPostPageProps) {
               <MDXRemote {...mdxSource} />
             </div>
 
-            <div className="mt-12 p-6 bg-gray-50 rounded-lg border border-gray-200 text-center">
-              <h3 className="text-xl font-semibold text-[#2E2E2E] mb-2">
-                Ready to scale your paid media?
+            <div className="mt-12 p-8 bg-[#2E2E2E] rounded-lg text-center">
+              <h3 className="text-2xl font-bold text-white mb-3">
+                Unlocking Ad Potential for Brands Ready to Scale
               </h3>
-              <p className="text-gray-600 mb-4">
-                Book a free strategy call with our team.
+              <p className="text-gray-300 mb-6">
+                Book a free strategy call and see how we can scale your paid media.
               </p>
               <Link
                 href="/#contact"
-                className="inline-block bg-[#FF6B6B] hover:bg-[#FF5252] text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+                className="inline-block bg-[#FF6B6B] hover:bg-[#FF5252] text-white font-semibold px-8 py-4 rounded-lg transition-colors text-lg"
               >
-                Book a Call
+                Book a Strategy Call
               </Link>
             </div>
           </article>
