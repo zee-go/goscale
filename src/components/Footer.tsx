@@ -19,9 +19,10 @@ export function Footer() {
             <Image
               src="/gsm_horizontal_logo.png"
               alt="GoScale Media"
-              width={320}
-              height={80}
-              className="h-16 w-auto brightness-0 invert"
+              width={400}
+              height={100}
+              className="h-20 w-auto"
+              style={{ filter: "brightness(0) invert(1) brightness(0.98)" }}
             />
           </Link>
 
