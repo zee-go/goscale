@@ -46,32 +46,42 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
                   key={post.slug}
                   className="border-b border-gray-200 pb-8"
                 >
-                  <Link href={`/blog/${post.slug}`}>
-                    <h2 className="text-2xl font-semibold text-[#2E2E2E] hover:text-[#2DD4BF] transition-colors mb-2">
-                      {post.title}
-                    </h2>
-                  </Link>
-                  <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
-                    <time dateTime={post.date}>
-                      {new Date(post.date).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </time>
-                    <span>{post.reading_time} min read</span>
-                    {post.category && (
-                      <span className="bg-gray-100 px-2 py-0.5 rounded text-xs">
-                        {post.category.replace(/_/g, " ")}
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-gray-600">{post.description}</p>
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="inline-block mt-3 text-[#2DD4BF] font-medium hover:text-[#FF6B6B] transition-colors text-sm"
+                    className="block sm:flex gap-6"
                   >
-                    Read more →
+                    {post.hero_image && (
+                      <img
+                        src={post.hero_image}
+                        alt={post.hero_image_alt || post.title}
+                        className="w-full sm:w-48 h-32 object-cover rounded-lg mb-4 sm:mb-0 flex-shrink-0"
+                        loading="lazy"
+                      />
+                    )}
+                    <div>
+                      <h2 className="text-2xl font-semibold text-[#2E2E2E] hover:text-[#2DD4BF] transition-colors mb-2">
+                        {post.title}
+                      </h2>
+                      <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                        <time dateTime={post.date}>
+                          {new Date(post.date).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          })}
+                        </time>
+                        <span>{post.reading_time} min read</span>
+                        {post.category && (
+                          <span className="bg-gray-100 px-2 py-0.5 rounded text-xs">
+                            {post.category.replace(/_/g, " ")}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-gray-600">{post.description}</p>
+                      <span className="inline-block mt-3 text-[#2DD4BF] font-medium hover:text-[#FF6B6B] transition-colors text-sm">
+                        Read more →
+                      </span>
+                    </div>
                   </Link>
                 </article>
               ))}
@@ -85,6 +95,8 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = getAllBlogPosts().map(({ content, ...meta }) => meta);
-  return { props: { posts } };
+  const posts = getAllBlogPosts().map(({ content: _, ...meta }) => meta);
+  // Convert undefined to null for JSON serialization
+  const serializedPosts = JSON.parse(JSON.stringify(posts));
+  return { props: { posts: serializedPosts } };
 };

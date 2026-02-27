@@ -5,14 +5,29 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { getAllBlogSlugs, getBlogPost, BlogPost } from "@/lib/mdx";
+import { CTABanner } from "@/components/blog/CTABanner";
+import { BlogImage } from "@/components/blog/BlogImage";
+import { RelatedPosts } from "@/components/blog/RelatedPosts";
+import { getAllBlogSlugs, getBlogPost, getAllBlogPosts, BlogPost } from "@/lib/mdx";
+
+interface RelatedPostMeta {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  reading_time: number;
+  category: string;
+  hero_image?: string | null;
+  hero_image_alt?: string | null;
+}
 
 interface BlogPostPageProps {
   post: Omit<BlogPost, "content">;
   mdxSource: MDXRemoteSerializeResult;
+  relatedPosts: RelatedPostMeta[];
 }
 
-export default function BlogPostPage({ post, mdxSource }: BlogPostPageProps) {
+export default function BlogPostPage({ post, mdxSource, relatedPosts }: BlogPostPageProps) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -20,6 +35,9 @@ export default function BlogPostPage({ post, mdxSource }: BlogPostPageProps) {
     description: post.description,
     datePublished: post.date,
     dateModified: post.updated || post.date,
+    ...(post.hero_image && {
+      image: `https://goscale.media${post.hero_image}`,
+    }),
     author: {
       "@type": "Organization",
       name: post.author || "GoScale Media",
@@ -31,6 +49,24 @@ export default function BlogPostPage({ post, mdxSource }: BlogPostPageProps) {
       url: "https://goscale.media",
     },
     mainEntityOfPage: `https://goscale.media/blog/${post.slug}`,
+  };
+
+  const mdxComponents = {
+    CTABanner: () => <CTABanner />,
+    BlogImage: ({ name }: { name: string }) => {
+      if (name === "mid" && post.mid_image) {
+        return (
+          <BlogImage
+            name="mid"
+            src={post.mid_image}
+            alt={post.mid_image_alt}
+            credit={post.mid_image_credit}
+            creditUrl={post.mid_image_credit_url}
+          />
+        );
+      }
+      return null;
+    },
   };
 
   return (
@@ -49,9 +85,21 @@ export default function BlogPostPage({ post, mdxSource }: BlogPostPageProps) {
           content={`https://goscale.media/blog/${post.slug}`}
         />
         <meta property="og:type" content="article" />
+        {post.hero_image && (
+          <meta
+            property="og:image"
+            content={`https://goscale.media${post.hero_image}`}
+          />
+        )}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.description} />
+        {post.hero_image && (
+          <meta
+            name="twitter:image"
+            content={`https://goscale.media${post.hero_image}`}
+          />
+        )}
         {post.keywords && (
           <meta name="keywords" content={post.keywords.join(", ")} />
         )}
@@ -93,8 +141,40 @@ export default function BlogPostPage({ post, mdxSource }: BlogPostPageProps) {
               </div>
             </header>
 
+            {post.hero_image && (
+              <figure className="mb-10">
+                <img
+                  src={post.hero_image}
+                  alt={post.hero_image_alt || post.title}
+                  className="w-full rounded-lg"
+                />
+                {post.hero_image_credit && (
+                  <figcaption className="text-xs text-gray-400 mt-2 text-center">
+                    Photo by{" "}
+                    <a
+                      href={post.hero_image_credit_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-gray-600"
+                    >
+                      {post.hero_image_credit}
+                    </a>{" "}
+                    on{" "}
+                    <a
+                      href="https://unsplash.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-gray-600"
+                    >
+                      Unsplash
+                    </a>
+                  </figcaption>
+                )}
+              </figure>
+            )}
+
             <div className="prose prose-lg max-w-none prose-headings:text-[#2E2E2E] prose-a:text-[#2DD4BF] prose-a:no-underline hover:prose-a:text-[#FF6B6B] prose-strong:text-[#2E2E2E]">
-              <MDXRemote {...mdxSource} />
+              <MDXRemote {...mdxSource} components={mdxComponents} />
             </div>
 
             <div className="mt-12 p-8 bg-[#2E2E2E] rounded-lg text-center">
@@ -111,6 +191,8 @@ export default function BlogPostPage({ post, mdxSource }: BlogPostPageProps) {
                 Book a Strategy Call
               </Link>
             </div>
+
+            <RelatedPosts posts={relatedPosts} />
           </article>
         </main>
         <Footer />
@@ -135,5 +217,25 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { content, ...meta } = post;
   const mdxSource = await serialize(content);
 
-  return { props: { post: meta, mdxSource } };
+  // Resolve related posts to full metadata
+  const allPosts = getAllBlogPosts();
+  const relatedPosts: RelatedPostMeta[] = (meta.related_posts || [])
+    .map((relSlug) => allPosts.find((p) => p.slug === relSlug))
+    .filter((p): p is BlogPost => p !== undefined)
+    .slice(0, 3)
+    .map(({ slug, title, description, date, reading_time, category, hero_image, hero_image_alt }) => ({
+      slug,
+      title,
+      description,
+      date,
+      reading_time,
+      category,
+      hero_image: hero_image ?? null,
+      hero_image_alt: hero_image_alt ?? null,
+    }));
+
+  // Convert undefined to null for JSON serialization
+  const serializedMeta = JSON.parse(JSON.stringify(meta));
+
+  return { props: { post: serializedMeta, mdxSource, relatedPosts } };
 };

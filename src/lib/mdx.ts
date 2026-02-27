@@ -20,6 +20,14 @@ export interface BlogPost {
   internal_links: { anchor: string; href: string }[];
   content: string;
   schema_type: string;
+  hero_image?: string;
+  hero_image_alt?: string;
+  hero_image_credit?: string;
+  hero_image_credit_url?: string;
+  mid_image?: string;
+  mid_image_alt?: string;
+  mid_image_credit?: string;
+  mid_image_credit_url?: string;
 }
 
 export interface LandingPage {
