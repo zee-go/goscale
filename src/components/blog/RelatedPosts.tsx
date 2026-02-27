@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface RelatedPost {
   slug: string;
@@ -32,11 +33,13 @@ export function RelatedPosts({ posts }: RelatedPostsProps) {
           >
             <article className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
               {post.hero_image && (
-                <img
+                <Image
                   src={post.hero_image}
                   alt={post.hero_image_alt || post.title}
+                  width={400}
+                  height={225}
                   className="w-full h-40 object-cover"
-                  loading="lazy"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               )}
               <div className="p-4">

@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { Header } from "@/components/Header";
@@ -143,10 +144,14 @@ export default function BlogPostPage({ post, mdxSource, relatedPosts }: BlogPost
 
             {post.hero_image && (
               <figure className="mb-10">
-                <img
+                <Image
                   src={post.hero_image}
                   alt={post.hero_image_alt || post.title}
+                  width={1200}
+                  height={675}
                   className="w-full rounded-lg"
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  priority
                 />
                 {post.hero_image_credit && (
                   <figcaption className="text-xs text-gray-400 mt-2 text-center">

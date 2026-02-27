@@ -1,6 +1,7 @@
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import Head from "next/head";
+import Image from "next/image";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { getAllBlogPosts, BlogPost } from "@/lib/mdx";
@@ -51,11 +52,13 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
                     className="block sm:flex gap-6"
                   >
                     {post.hero_image && (
-                      <img
+                      <Image
                         src={post.hero_image}
                         alt={post.hero_image_alt || post.title}
+                        width={192}
+                        height={128}
                         className="w-full sm:w-48 h-32 object-cover rounded-lg mb-4 sm:mb-0 flex-shrink-0"
-                        loading="lazy"
+                        sizes="(max-width: 640px) 100vw, 192px"
                       />
                     )}
                     <div>

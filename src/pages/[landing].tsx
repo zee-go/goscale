@@ -5,14 +5,15 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { getAllLandingSlugs, getLandingPage, LandingPage } from "@/lib/mdx";
+import { getAllLandingSlugs, getLandingPage, LandingPage, extractFAQs, FAQ } from "@/lib/mdx";
 
 interface LandingPageProps {
   page: Omit<LandingPage, "content">;
   mdxSource: MDXRemoteSerializeResult;
+  faqs: FAQ[];
 }
 
-export default function LandingPageView({ page, mdxSource }: LandingPageProps) {
+export default function LandingPageView({ page, mdxSource, faqs }: LandingPageProps) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -25,6 +26,19 @@ export default function LandingPageView({ page, mdxSource }: LandingPageProps) {
     },
     url: `https://goscale.media/${page.slug}`,
   };
+
+  const faqJsonLd = faqs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  } : null;
 
   return (
     <>
@@ -46,6 +60,12 @@ export default function LandingPageView({ page, mdxSource }: LandingPageProps) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {faqJsonLd && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+          />
+        )}
       </Head>
 
       <div className="min-h-screen bg-white">
@@ -94,6 +114,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const { content, ...meta } = page;
   const mdxSource = await serialize(content);
+  const faqs = extractFAQs(content);
 
-  return { props: { page: meta, mdxSource } };
+  return { props: { page: meta, mdxSource, faqs } };
 };

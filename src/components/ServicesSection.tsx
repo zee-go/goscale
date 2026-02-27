@@ -34,10 +34,6 @@ const services = [
 export function ServicesSection() {
   const { ref, isVisible } = useScrollAnimation();
 
-  const handleBookCall = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <>
       <div className="h-px bg-[--off-white] w-full"></div>

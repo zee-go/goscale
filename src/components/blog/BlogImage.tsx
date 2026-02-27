@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface BlogImageProps {
   name: "hero" | "mid";
   src?: string;
@@ -11,11 +13,13 @@ export function BlogImage({ src, alt, credit, creditUrl }: BlogImageProps) {
 
   return (
     <figure className="not-prose my-8">
-      <img
+      <Image
         src={src}
         alt={alt || ""}
+        width={1200}
+        height={675}
         className="w-full rounded-lg"
-        loading="lazy"
+        sizes="(max-width: 768px) 100vw, 768px"
       />
       {credit && (
         <figcaption className="text-xs text-gray-400 mt-2 text-center">
