@@ -21,7 +21,7 @@ export function Footer() {
               alt="GoScale Media"
               width={400}
               height={100}
-              className="h-20 w-auto"
+              className="h-36 w-auto"
             />
           </Link>
 
